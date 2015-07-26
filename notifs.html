@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>code4good</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300i,400,900' rel='stylesheet' type='text/css'>
+
+  <!-- endbuild -->
+
+</head>
+<body class="admin">
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+
+      <div class="container wide" id="notifview">
+
+        <h2> 
+          <img src="images/bell.png" height="48" width="48" style="margin-right:1rem">
+          Pending assignments 
+          <span>({{ dat.length }})</span>
+        </h2>
+        <ol class="as-container" >
+          <li v-repeat="user in dat">
+            <span><span class="name">{{user.name | capitalize}}</span> seeks help. </span>
+            <h5>We found the following matches for {{user.name | capitalize}}: </h5>
+            <table class="sub-container">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>Email</td>
+                  <td>Phone</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody v-repeat="match in user.matches">
+                <tr>
+                  <td>{{match.username | capitalize}}</td>
+                  <td>{{match.useremail}}</td>
+                  <td>{{match.userphone}}</td>
+                  <td>
+                    <button class="btn btn-primary" v-on="click : sendRequest(match.useremail, user.phone, match)">Assign</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ol>
+      </div>
+
+
+      <!-- build:js scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="/bower_components/jquery/dist/jquery.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
+
+      <!-- build:js scripts/plugins.js -->
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+      <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+      <!-- endbuild -->
+
+      <script src="scripts/hc.js"></script>
+
+
+      <!-- build:js scripts/main.js -->
+      <script src="scripts/main.js"></script>
+
+      <!-- endbuild -->
+
+      <script type="text/javascript" src="/bower_components/vue/dist/vue.min.js"></script>
+      <script type="text/javascript" src="scripts/notifController.js"></script>
+
+    </body>
+    </html>

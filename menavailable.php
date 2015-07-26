@@ -3,7 +3,7 @@ $con=mysql_connect("127.0.0.1","root","code4good");
 mysql_select_db("code4good",$con);
 
 
-$r=mysql_query("SELECT count(name) as countpending FROM mentee where status='pending'");
+$r=mysql_query("SELECT count(email) as countmenfree FROM mentor where isBusy='0'");
 
 
 

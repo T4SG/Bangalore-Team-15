@@ -5,18 +5,28 @@ or die('Error connecting to mysql: '.mysql_error());
 
 mysql_select_db("code4good",$con);
 
+
+
 $id=$_POST['uid'];
 $pass=$_POST['pass'];
 
 
+
+
 $r=mysql_query("select password from mentor where email='$id'");
-if($r==null)
+while($row=mysql_fetch_assoc($r))
+{
+
+$passwrd=$row['password'];
+
+if($passwrd!=$pass)
 {
  echo 'wrong username or password';
 }
 else
 {
- header("Location: ec2-54-169-129-45.ap-southeast-1.compute.amazonaws.com/mentor.html");
+ header("Location: mentor.html");
+}
 }
 
 

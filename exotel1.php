@@ -3,8 +3,8 @@ $post_data = array(
     // 'From' doesn't matter; For transactional, this will be replaced with your SenderId;
     // For promotional, this will be ignored by the SMS gateway
     'From'   => '8808891988',
-    'To'    => '8892816209',
-    'Body'  => 'Reply 1/2.. to choose an appointment with Dr. Foo',
+    'To'    => '9000041558',
+    'Body'  => 'How did the session with your mentor go? Please give a feedback with 1 being excellent and 5 being pathetic',
 );
  
 $exotel_sid = "urja5"; // Your Exotel SID

@@ -27,7 +27,6 @@ $Body = $_GET["Body"];
 $condition=substr($Body,11,1);
 if($condition=="f")
 {
-
 $feedback=substr($Body,11,8);
 $rating=substr($Body,14);
 
@@ -112,29 +111,20 @@ $http_code = curl_getinfo($ch ,CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 mysql_close($con);
+
 }
-
-
-
-////////////////The else part.. integrating....
-//recieve feedback from mentee
 
 else
 {
-
-/*
-ini_set("log_errors", 1);
-ini_set("error_log", "/tmp/php-error.log");
-error_log( "SMS received" );
-*/
-//content type must be set to text/plain
-header('Content-Type: text/plain');
+   header('Content-Type: text/plain');
 //content length must be set to 0
 header('Content-Length: 0');
 //exotel sends a HEAD request to verify the headers
 if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }
+
+
 
 
 
@@ -155,63 +145,6 @@ mysql_close($con);
 
 }
 
+
+
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

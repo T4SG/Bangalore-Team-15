@@ -7,21 +7,24 @@ or die('Error connecting to mysql: '.mysql_error());
 
 mysql_select_db("code4good",$con);
 
-$id=$_POST['uid'];
-$pass=$_POST['pass'];
 
 
-$r=mysql_query("select pass from admin where name='$id'");
-if($r==null)
+
+$r=mysql_query("select name from admin");
+
+while($row=mysql_fetch_assoc($r))
+		
 {
- echo 'wrong username or password';
-}
-else
-{
- header("Location: ec2-54-169-129-45.ap-southeast-1.compute.amazonaws.com/admin.html");
-}
+$out[]=$row;	
+        
+	$user_name=$row['name'];
+	
+	$post[]=array('Username'=>$user_name);
 
-
+}
+//$p=mysql_fetch_array($post);
+//$response['feed']=$post;
+echo json_encode($post);
 mysql_close($con);
 ?>
 

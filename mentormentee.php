@@ -3,7 +3,7 @@ $con=mysql_connect("127.0.0.1","root","code4good");
 mysql_select_db("code4good",$con);
 
 $r=mysql_query("SELECT me.name, mr.name from mentor mr, mentee me, engagement e
-where me.phone=e.num and mr.email=e.email;");
+where me.phone=e.num and mr.eid=e.eid;");
 
 while($row=mysql_fetch_assoc($r))
       

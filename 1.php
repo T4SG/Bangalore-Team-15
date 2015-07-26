@@ -1,8 +1,7 @@
 
 
 <?php
-$con=mysql_connect("ec2-54-169-129-45.ap-southeast-1.compute.amazonaws.com:3306","root","code4good")
-or die('Error connecting to mysql: '.mysql_error());
+$con=mysql_connect("ec2-54-169-129-45.ap-southeast-1.compute.amazonaws.com","root","code4good");
 mysql_select_db("code4good",$con);
 
 
@@ -14,7 +13,7 @@ while($row=mysql_fetch_assoc($r))
 		
 {
 $out[]=$row;	
-        echo $row;
+        
 	$user_name=$row['name'];
 	
 	$post[]=array('Username'=>$user_name);

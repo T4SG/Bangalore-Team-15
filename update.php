@@ -6,12 +6,14 @@ mysql_select_db("code4good",$con);
 $num=$_POST['num'];
 $email=$_POST['email'];
 
-$sql = "UPDATE mentee set status='sucess' where phone='$num'";
-$con->query($sql);
 
-$sql1 = "UPDATE mentor set isBusy='1' where email='$email'";
-$con->query($sql1);
 
+$s=mysql_query("Update mentee set status='success' where phone='$num'");
+//mysql_execute($s);
+
+
+$s1 = mysql_query("UPDATE mentor set isBusy=1 where email='$email'");
+//mysql_execute($s1);
 mysql_close($con);
 ?>
 
